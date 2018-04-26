@@ -1,0 +1,14 @@
+Desktop is 3840 x 1080 @ 60 Hz
+
+LICENSE SYSTEM [2018225 12:24:44] No start/stop license dates set
+
+LICENSE SYSTEM [2018225 12:24:44] Next license update check is after 2017-12-08T15:51:51
+
+
+ COMMAND LINE ARGUMENTS:
+/opt/Unity/Editor/Unity
+-no-throttle-updates
+[0225/122444:ERROR:browser_main_loop.cc(161)] Running without the SUID sandbox! See https://code.google.com/p/chromium/wiki/LinuxSUIDSandboxDevelopment for more information on developing with the sandbox on.
+[0225/122444:ERROR:renderer_main.cc(227)] Running without renderer sandbox
+[0225/122444:ERROR:gpu_process_transport_factory.cc(402)] Failed to establish GPU channel.
+[CEF] undefined in file:///%2Fhome%2Fsunit%2F.local%2Fshare%2Funity3d%2FPackages%2Fnode_modules%2Funity-editor-home%2Fdist/assets/unity-editor-home.js at line 39

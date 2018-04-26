@@ -1,0 +1,5 @@
+{"type":"analytics.custom.v1","msg":{"ts":1512662024916,"name":"unity.sceneLoad","custom_params":{"level_name":"Main_Scene","level_num":0,"total_levels":1}}}
+{"type":"perf.sceneLoadingTime.v1","msg":{"ts":1512662024948,"scene_name":"Main_Scene","scene_index":0,"background_time":48611000,"integrate_time":61482000,"ts_integrate_time":64000,"total_time":122003000}}
+{"type":"analytics.appRunning.v1","msg":{"ts":1512662085237,"duration":0,"local_time_offset":21600000}}
+{"type":"analytics.appRunning.v1","msg":{"ts":1512662134504,"duration":109,"local_time_offset":21600000}}
+(1){"type":"analytics.appStop.v1","msg":{"ts":1512662134504}}

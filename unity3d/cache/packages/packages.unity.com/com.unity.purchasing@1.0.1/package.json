@@ -1,0 +1,12 @@
+{
+  "name": "com.unity.purchasing",
+  "version": "1.0.1",
+  "unity": "2017.2",
+  "description": "Unity Purchasing",
+  "keywords": [
+    "purchasing",
+    "iap",
+    "unity"
+  ],
+  "license" : "Unity Companion Package License v1.0"
+}

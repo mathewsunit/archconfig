@@ -1,0 +1,753 @@
+{
+	"folder_history":
+	[
+	],
+	"last_window_id": 1,
+	"settings":
+	{
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+				]
+			},
+			"buffers":
+			[
+				{
+					"contents": "Currently, I am in the final semester of a Masters in Computer Science at the University of Texas at Dallas. My specialization is in ML, AI and Data Science. Prior to attending graduate school, I was a backend Java Engineer for 4 years, and I am currently looking for the ideal place to resume my career.\nFrom 2012 to 2016 I worked in the Cloud Network Management team at Sonus Networks. As a member of the team, I owned some portions of the management and monitoring stack. This included monitoring applications, scaling algorithms that are essential to supporting and monetizing our VoIP architecture. I also developed various upstream interfaces to communicate with third party applications. As our team had complete responsibility over the product, I also helped in developing and maintaining regression and load testing tools, etc. The core focus of my work is to ensure that our Network Management Solution could meet the needs of our customers and support our essential solutions in the cloud.\nLast summer, I interned at Faraday Future Inc, where I was part of their system integration team where I helped them build a tool that generates libraries for their upcoming vehicle.\nI worked mostly on Java and Python and have recently started learning Scala for some BigData projects.\nThough my background is probably quite different from what you might expect, I am sure I can grow into a new role and quickly become an asset to the team.",
+					"settings":
+					{
+						"buffer_size": 1441,
+						"line_ending": "Unix",
+						"name": "Currently, I am in the final semester of a Masters"
+					}
+				},
+				{
+					"contents": "Hi Brad,\n\nI saw a job that you posted for a Software Engineer in Enterprise Applications at Tableau. I am Software Engineer with ~4 years of experience and I felt that this was something right up my street.\nIt would be great if you could take a look at my profile, and let me know if I can be a good fit at Tableau. I would be happy to give you a more formal introduction and my latest resume!\n\nCheers!\nSunit",
+					"settings":
+					{
+						"buffer_size": 408,
+						"line_ending": "Unix",
+						"name": "Hi Brad,"
+					}
+				},
+				{
+					"contents": "// Databricks notebook source\nval tweets = spark.sql(\"SELECT tweet_id,text,airline_sentiment FROM tweets_csv WHERE text is not null \")\n\n// COMMAND ----------\n\nval tokenizer = new Tokenizer().setInputCol(\"text\").setOutputCol(\"words\")\nval tokenized = tokenizer.transform(tweets)\n\n// COMMAND ----------\n\nval remover = new StopWordsRemover()\n  .setInputCol(\"words\")\n  .setOutputCol(\"filtered\")\nval removed = remover.transform(tokenized)\n\n// COMMAND ----------\n\nval indexer = new StringIndexer()\n  .setInputCol(\"airline_sentiment\")\n  .setOutputCol(\"airline_sentiment_index\")\n\nval indexed = indexer.fit(removed).transform(removed)\n\n// COMMAND ----------\n\ncase class LabeledDocument(sentiment: Double, body: Seq[String])\nval df = indexed.rdd.map(row => new LabeledDocument(row.getDouble(5), row.getAs[Seq[String]](4)))\n\n// COMMAND ----------\n\nimport org.apache.spark.mllib.feature.{Normalizer, IDF, HashingTF}\n\nval tf = new HashingTF()\nval freqs = df.map(x => (LabeledPoint(x.sentiment, tf.transform(x.body)))).cache()\nval hashedData = freqs.map(_.features)\nval idfModel = new IDF().fit(hashedData)\nval idf = idfModel.transform(hashedData)\nval LabeledVectors = idf.zip(freqs).map(x => LabeledPoint(x._2.label, x._1))\n\n// COMMAND ----------\n\nval splits = LabeledVectors.randomSplit(Array(0.6, 0.4), seed = 11L)\nval training = splits(0).cache()\nval test = splits(1)\n\n// COMMAND ----------\n\nimport org.apache.spark.mllib.classification.{LogisticRegressionWithSGD, LogisticRegressionWithLBFGS, SVMWithSGD, NaiveBayes}\nval model = NaiveBayes.train(training,lambda = 1.0)\n\n// COMMAND ----------\n\nval predictionAndLabels = test.map(x => (model.predict(x.features), x.label))\npredictionAndLabels.take(5)\n\n// COMMAND ----------\n\nimport org.apache.spark.mllib.evaluation.{MulticlassMetrics, BinaryClassificationMetrics}\n\nval metrics = new MulticlassMetrics(predictionAndLabels)\nval cfMatrix = metrics.confusionMatrix\n\nprintf(\n  s\"\"\"\n     |=================== Confusion matrix ==========================\n     |          | %-15s                     %-15s\n     |----------+----------------------------------------------------\n     |Actual = 0| %-15f                     %-15f\n     |Actual = 1| %-15f                     %-15f\n     |===============================================================\n     \"\"\".stripMargin, \"Predicted = 0\", \"Predicted = 1\",\n  cfMatrix.apply(0, 0), cfMatrix.apply(0, 1), cfMatrix.apply(1, 0), cfMatrix.apply(1, 1))\n\nprintln(\"\\nACCURACY \" + ((cfMatrix(0,0) + cfMatrix(1,1))/(cfMatrix(0,0) + cfMatrix(0,1) + cfMatrix(1,0) + cfMatrix(1,1))))\n\n\n//cfMatrix.toArray\n\nval fpr = metrics.falsePositiveRate(0)\nval tpr = metrics.truePositiveRate(0)\n\nprintln(\n  s\"\"\"\n     |False positive rate = $fpr\n      |True positive rate = $tpr\n \"\"\".stripMargin)\n\nval m = new BinaryClassificationMetrics(predictionAndLabels)\nprintln(\"PR \" + m.areaUnderPR())\nprintln(\"AUC \" + m.areaUnderROC())",
+					"file": "/home/sunit/Downloads/Assignment3.scala",
+					"file_size": 2876,
+					"file_write_time": 1523127571000000,
+					"settings":
+					{
+						"buffer_size": 2875,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/sunit/Downloads/Assignment3P2.scala",
+					"settings":
+					{
+						"buffer_size": 0,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"contents": "// Databricks notebook source\nimport java.util.regex.Pattern\n\nimport org.apache.spark.SparkConf\nimport org.apache.spark.ml.Pipeline\nimport org.apache.spark.ml.classification.LogisticRegression\nimport org.apache.spark.ml.feature._\nimport org.apache.spark.ml.linalg.Vector\nimport org.apache.spark.sql.functions.udf\nimport org.apache.spark.sql.{Row, SparkSession}\n\nval regex = \"[\\\\.\\\\,\\\\:\\\\-\\\\!\\\\?\\\\n\\\\t,\\\\%\\\\#\\\\*\\\\|\\\\=\\\\(\\\\)\\\\\\\"\\\\>\\\\<\\\\/]\"\nval pattern = Pattern.compile(regex)\n\ndef clean: String => String = pattern.matcher(_).replaceAll(\" \").split(\"[ ]+\").mkString(\" \")\n\n// COMMAND ----------\n\nval conf = new SparkConf()\n  .setMaster(\"local[*]\")\n  .setAppName(\"TfIdfSpark\")\n  .set(\"spark.driver.memory\", \"3g\")\n  .set(\"spark.executor.memory\", \"2g\")\n\nval sc = SparkSession.builder.config(conf).getOrCreate()\nimport sc.implicits._\n\n// COMMAND ----------\n\nval df = sc.read.format(\"csv\").option(\"header\", \"true\").load(\"/FileStore/tables/Tweets.csv\")\nval df2 = df.filter(df(\"text\").isNotNull)\nval cleanUdf = udf(clean)\nval tweets = df2.withColumn(\"text\",  cleanUdf($\"text\"))\n\n// COMMAND ----------\n\nimport org.apache.spark.sql.functions._ \n\nval query = tweets.select(\"airline\",\"airline_sentiment\").rdd.map{ case Row(k: String, v: String) => (k, \n v match {\n   case \"positive\"  => 5.0\n   case \"neutral\"  => 2.5\n   case \"negative\"  => 1.0\n})}.toDF(\"airline\",\"sentiment\")\n\n// COMMAND ----------\n\nval inter1 = query.groupBy(\"airline\").agg(mean(\"sentiment\").alias(\"avg\"))\n\n// COMMAND ----------\n\nval inter2 = inter1.orderBy($\"avg\".desc).limit(2)\ndisplay(inter2)\n\n// COMMAND ----------\n\nval inter3 = tweets.join(inter2, inter2.col(\"airline\") === tweets.col(\"airline\")).withColumn(\"text\", lower(col(\"text\"))).withColumn(\"id\",monotonically_increasing_id())\n\n// COMMAND ----------\n\nval splits = inter3.randomSplit(Array(0.6, 0.4), seed = 11L)\nval training = splits(0).cache()\nval test = splits(1)\nval stopwords = Array(\"united\",\"flight\",\"usairways\",\"americanair\",\"southwestair\",\"http\",\"jetblue\",\"thanks\",\"service\",\"hours\",\"time\",\"customer\",\"hold\",\"thank\",\"please\",\"plane\",\"virginamerica\")\n\nval tokenizer = new RegexTokenizer()\n  .setPattern(\"[\\\\W_]+\")\n  .setMinTokenLength(4)\n  .setInputCol(\"text\")\n  .setOutputCol(\"tokens\")\n\nval remover = new StopWordsRemover()\n  .setInputCol(tokenizer.getOutputCol)\n  .setStopWords(stopwords)\n  .setOutputCol(\"filtered\")\n\nval vectorizer = new CountVectorizer()\n  .setInputCol(remover.getOutputCol)\n  .setOutputCol(\"features\")\n  .setVocabSize(10000)\n  .setMinDF(5)\n\nimport org.apache.spark.ml.clustering.LDA\n\nval lda = new LDA().setK(20).setMaxIter(50).setOptimizer(\"em\")\n\n// COMMAND ----------\n\nval pipeline = new Pipeline().setStages(Array(tokenizer, remover, vectorizer, lda))\nval model = pipeline.fit(training)\n\n// COMMAND ----------\n\nimport org.apache.spark.ml.clustering.DistributedLDAModel\nimport org.apache.spark.ml.feature._\n\nval pipelineModel = pipeline.fit(tweets)\nval vectorizerModel = pipelineModel.stages(2).asInstanceOf[CountVectorizerModel]\nval ldaModel = pipelineModel.stages(3).asInstanceOf[DistributedLDAModel]\nval vocabList = vectorizerModel.vocabulary\nval termsIdx2Str = udf { (termIndices: Seq[Int]) => termIndices.map(idx => vocabList(idx)) }\n\nval topics = ldaModel.describeTopics(maxTermsPerTopic = 8)\n  .withColumn(\"terms\", termsIdx2Str(col(\"termIndices\")))\ndisplay(topics.select(\"topic\", \"terms\", \"termWeights\"))",
+					"file": "/home/sunit/Downloads/test.scala",
+					"file_size": 3358,
+					"file_write_time": 1523158002000000,
+					"settings":
+					{
+						"buffer_size": 3357,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/sunit/IdeaProjects/Assignment3Part2/src/main/scala/Part2/TopicModelling.scala",
+					"settings":
+					{
+						"buffer_size": 3861,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"contents": "Hi,\n\nThank you for your reply!\nI thought along with my resume, I could give you a little introduction about myself.\n\nI am in the final semester of a Masters in Computer Science at the University of Texas at Dallas with a specialization in ML, AI and Data Science.\n\nFrom 2012 to 2016 I worked in the Cloud Network Management team at Sonus Networks. As a member of the team, I owned some portions of the management and monitoring stack. This included monitoring applications and scaling solutions that are essential to supporting and monetizing our VoIP architecture. I also developed various upstream interfaces to communicate with third party applications. As our team had end to end responsibility over the product, I also helped in developing and maintaining regression and load testing tools, etc. The core focus of my work is to ensure that our Network Management Solution could meet the needs of our customers and support our essential solutions in the cloud.\nLast summer, I interned at Faraday Future Inc, where I was part of their system integration team where I helped them build a tool that generates libraries for their upcoming vehicle.\n\nI worked mostly on Java and Python and have recently started learning about Hadoop and dabbled in Scala/Spark for some personal BigData projects. \nAlthough I have worked mostly on Backend Java, I am trying to transition into a role that will bring me closer to the BigData and ML ecosystem, which is what led me to Signifyd.\nMy background is probably quite different from what you might expect, but I am sure I can grow into a new role and quickly become an asset to the team\n.\nAttached is my resume for your consideration.\n\nOn Mon, Mar 19, 2018 at 10:38 AM, Shathiya Rengalwar <shathiya.rengalwar@signifyd.com> wrote:\nHi Sunit,\n\nHappy Monday and thanks for reach out message. Please shoot me your resume and a best time to hop on a quick intro call:-)\n\nBest,\nShathiya \n\nShathiya Narayanasamy\nSr Technical Recruiter\nSignifyd | Know more. Risk less.\nshathiya@signifyd.com | (650)209-8852 \n\nOn Sun, Mar 18, 2018 at 12:00 PM, Sunit Mathew <mathew.sunit@gmail.com> wrote:\nHi Shathiya!\n\nI am a software developer exploring new opportunities at exciting new start-ups like Signifyd. \nTake a look at my profile on LinkedIn and let me know if I could be a fit at Signifyd. If so, I shall send across my latest resume and share a little more about myself and my experience.\nhttps://www.linkedin.com/in/sunit-mathew/\n\n-- \nRegards,\n\nSunit\n\n\n\n\n-- \nRegards,\n\nSunit",
+					"settings":
+					{
+						"buffer_size": 2500,
+						"line_ending": "Unix",
+						"name": "Hi,"
+					}
+				},
+				{
+					"contents": "Virtual Network Function Manager:  Contributed to the development of Sonus’ new SaaS application tomanage, monitor, provision and scale cloud infrastructure.  Migrated existing framework to OpenStack.\nFault Tolerance and Performance Management:  Built framework to analyze Key Performance Indicators bycollecting SNMP/HTTP data.  Initiate horizontal scaling in case of failure or high load.\nLicensing Solution:  Developed a Licensing Solution for managed nodes to provide elastic services and on-demandfeatures.  Enhanced Performance and Fault Management Modules to work in tandem with Licensing Solution.\nLawful Intercept:  Lead development for an asynchronous application using netty, that forwards information to agovernment server for real time lawful interception. Individual Excellence Award.\nPublic Facing interfaces for Policy Server:  Co-developed CLI and SOAP interfaces for a Policy Server.Upgraded legacy Telnet interface to SSH. Developed load generation framework to mimic client requests and interactions.\nMobile Number Portability Solution:  Co-designed and developed a MNP Solution that can interface with 2 government databases through REST using a polling mechanism and forward changes to Policy Server.",
+					"settings":
+					{
+						"buffer_size": 1222,
+						"line_ending": "Unix",
+						"name": "Virtual Network Function Manager:  Contributed to"
+					}
+				},
+				{
+					"contents": "Point: Point@5cad8086\n[Point@61bbe9ba, Point@6e0be858, Point@5cad8086]\n[Point@61bbe9ba, Point@610455d6, Point@6e0be858, Point@5cad8086]\n[Point@61bbe9ba, Point@610455d6, Point@6e0be858, Point@5cad8086, Point@511d50c0]\n[Point@61bbe9ba, Point@610455d6, Point@6e0be858, Point@60e53b93, Point@5cad8086, Point@511d50c0]\n[Point@5e2de80c, Point@5cad8086, Point@1d44bcfa]\n[Point@5e2de80c, Point@266474c2, Point@5cad8086, Point@1d44bcfa]\n[Point@61bbe9ba, Point@610455d6, Point@6e0be858, Point@60e53b93, Point@6f94fa3e, Point@5cad8086, Point@511d50c0]\n[Point@5e481248, Point@61bbe9ba, Point@610455d6, Point@6e0be858, Point@60e53b93, Point@6f94fa3e, Point@5cad8086, Point@511d50c0]\n[Point@5e481248, Point@61bbe9ba, Point@610455d6, Point@6e0be858, Point@66d3c617, Point@60e53b93, Point@6f94fa3e, Point@5cad8086, Point@511d50c0]\n[Point@5e481248, Point@61bbe9ba, Point@610455d6, Point@6e0be858, Point@66d3c617, Point@60e53b93, Point@6f94fa3e, Point@5cad8086, Point@511d50c0, Point@63947c6b]\n[Point@5e481248, Point@61bbe9ba, Point@610455d6, Point@6e0be858, Point@66d3c617, Point@2b193f2d, Point@60e53b93, Point@6f94fa3e, Point@5cad8086, Point@511d50c0, Point@63947c6b]\n[Point@5e481248, Point@61bbe9ba, Point@610455d6, Point@6e0be858, Point@66d3c617, Point@2b193f2d, Point@60e53b93, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@511d50c0, Point@63947c6b]\n[Point@d716361, Point@5e2de80c, Point@266474c2, Point@5cad8086, Point@1d44bcfa]\n[Point@4dc63996, Point@6ff3c5b5, Point@5cad8086]\n[Point@d716361, Point@5e2de80c, Point@266474c2, Point@3764951d, Point@5cad8086, Point@1d44bcfa]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@4dc63996, Point@6ff3c5b5, Point@4d7e1886, Point@5cad8086]\nPoint: Point@6e0be858\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@6e0be858, Point@511d50c0]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@5e2de80c, Point@6e0be858]\n[Point@6e0be858, Point@1d44bcfa]\n[Point@6e0be858, Point@266474c2]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@d716361, Point@6e0be858]\n[Point@6e0be858, Point@3764951d]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\nPoint: Point@61bbe9ba\n[Point@61bbe9ba, Point@610455d6]\n[Point@61bbe9ba, Point@511d50c0]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@61bbe9ba, Point@5e2de80c]\n[Point@61bbe9ba, Point@1d44bcfa]\n[Point@61bbe9ba, Point@266474c2]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point@6f94fa3e, Point@5cad8086, Point@610455d6, Point@6e0be858, Point@2b193f2d, Point@60e53b93, Point@4b1210ee, Point@511d50c0, Point@63947c6b]\n[Point@d716361, Point@61bbe9ba]\n[Point@61bbe9ba, Point@3764951d]\n[Point@5e481248, Point@61bbe9ba, Point@66d3c617, Point@355da254, Point",
+					"settings":
+					{
+						"buffer_size": 5939,
+						"line_ending": "Unix",
+						"name": "Point: Point@5cad8086"
+					}
+				},
+				{
+					"file": "/home/sunit/Downloads/Assignment3/Part1/ReadMe",
+					"settings":
+					{
+						"buffer_size": 306,
+						"line_ending": "Unix",
+						"name": "ReadMe"
+					}
+				},
+				{
+					"file": "/home/sunit/Downloads/Assignment3/Part2/ReadMe",
+					"settings":
+					{
+						"buffer_size": 306,
+						"line_ending": "Unix",
+						"name": "ReadMe"
+					}
+				},
+				{
+					"file": "/home/sunit/Downloads/Assignment3/Part3/ReadMe",
+					"settings":
+					{
+						"buffer_size": 332,
+						"line_ending": "Unix",
+						"name": "ReadMe"
+					}
+				},
+				{
+					"file": "/home/sunit/server.properties",
+					"settings":
+					{
+						"buffer_size": 6851,
+						"line_ending": "Unix"
+					}
+				}
+			],
+			"build_system": "",
+			"command_palette":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"console":
+			{
+				"height": 0.0
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/home/sunit/Downloads/Assignment1b/Part1/README",
+				"/tmp/mozilla_sunit0/CS6350Assignment2.scala",
+				"/tmp/mozilla_sunit0/CS6350Assignment2_Part2.scala",
+				"/home/sunit/.IntelliJIdea2017.2/system/log/sbt.last.log",
+				"/home/sunit/IdeaProjects/HowTo",
+				"/home/sunit/IdeaProjects/MLProjects/build.sbt",
+				"/home/sunit/IdeaProjects/MLProjects/project/build.properties",
+				"/home/sunit/Downloads/ratings.dat",
+				"/home/sunit/Downloads/Assignment1b/Part2/README",
+				"/home/sunit/Downloads/Lab1",
+				"/home/sunit/Downloads/CoverLetter",
+				"/home/sunit/Downloads/Topics covered",
+				"/home/sunit/Downloads/BigData/Sriraam/Assignments/Assignment 3/Scala3.txt",
+				"/home/sunit/Downloads/BigData/Sriraam/Assignments/Classroom Assignment 2/Link to Spark Notebook.txt",
+				"/home/sunit/Downloads/BigData/Sriraam/Assignments/Classroom Assignment 4/Hive lab commands.txt",
+				"/home/sunit/IdeaProjects/JavaHDFSBackup/JavaHDFSOld/WordCount3.java",
+				"/home/sunit/IdeaProjects/JavaHDFSBackup/JavaHDFSOld/WordCount2.java",
+				"/home/sunit/IdeaProjects/JavaHDFSBackup/JavaHDFSOld/WordCount1.java",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp7-in1.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp7-in0.txt",
+				"/home/sunit/Downloads/ReadMe",
+				"/home/sunit/Downloads/Assignment1/Part1/ReadMe",
+				"/home/sunit/Downloads/Assignment1/Part2/ReadMe",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp4/lp4-1-acde.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp4/lp4-3-c.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp9-in1.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp9-in2.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp4/lp4-9-acde.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/test-lp4/a.2",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/test-lp4/c.2",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/test-lp4/c.1",
+				"/home/sunit/Downloads/cs6301/g50/README.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp7-in7.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp7-in6.txt",
+				"/home/sunit/Downloads/test-lp6/t2.1",
+				"/home/sunit/Downloads/test-lp6/t2.2",
+				"/home/sunit/Downloads/test-lp6/t2.3",
+				"/home/sunit/Downloads/test-lp6/t2.4",
+				"/home/sunit/Downloads/test-lp6/t3.1",
+				"/home/sunit/Downloads/test-lp6/t3.2",
+				"/home/sunit/Downloads/test-lp6/t3.3",
+				"/home/sunit/Downloads/test-lp6/t3.4",
+				"/home/sunit/Downloads/test-lp6/t3",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp4/lp4-in-cd.txt",
+				"/home/sunit/Downloads/test-lp6/t1.13",
+				"/home/sunit/Downloads/test-lp6/t1.12",
+				"/home/sunit/Downloads/test-lp6/t1.11",
+				"/home/sunit/Downloads/test-lp6/t1.2",
+				"/home/sunit/Downloads/test-lp6/t1.3",
+				"/home/sunit/Downloads/test-lp6/t1.4",
+				"/home/sunit/Downloads/test-lp6/t2",
+				"/home/sunit/Downloads/test-lp6/t1",
+				"/home/sunit/Downloads/test-lp6/t1.1",
+				"/home/sunit/Downloads/data2/lp6-in6.txt",
+				"/home/sunit/Downloads/data2/lp6-out6.txt",
+				"/home/sunit/Downloads/details/lp6-out4.txt",
+				"/home/sunit/.config/pcmanfm/default/pcmanfm.conf",
+				"/home/sunit/Desktop/Trash",
+				"/home/sunit/.config/openbox/rc.xml",
+				"/home/sunit/.config/polybar/mail",
+				"/home/sunit/.config/polybar/config-openbox",
+				"/home/sunit/.config/termite/config)bk2",
+				"/home/sunit/Downloads/data2/lp6-out5.txt",
+				"/home/sunit/.Xresources",
+				"/home/sunit/.config/termite/config",
+				"/home/sunit/.config/zathura/zathurarc",
+				"/home/sunit/Downloads/lp6-out2.txt",
+				"/home/sunit/Downloads/lp6-in1.txt",
+				"/home/sunit/Downloads/lp6-in2.txt",
+				"/home/sunit/Downloads/lp6-in3.txt",
+				"/home/sunit/Downloads/lp6-in4.txt",
+				"/home/sunit/Downloads/lp6-out4.txt",
+				"/home/sunit/Downloads/data2/lp6-in5.txt",
+				"/home/sunit/.config/openbox/menu.xml",
+				"/home/sunit/test",
+				"/home/sunit/.zshrc",
+				"/home/sunit/.config/polybar/launch-openbox.sh",
+				"/home/sunit/.config/openbox/autostart",
+				"/usr/local/bin/hotplug_monitor.sh"
+			],
+			"find":
+			{
+				"height": 35.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"\\n",
+					"“",
+					"”",
+					",",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"c",
+					"cet, cot, coy,",
+					"cet, cot, coy, cod, hod",
+					"[cet, cot, got, dot, tot]",
+					"null",
+					"rofi",
+					"98 750400 94310 422979",
+					"rofi",
+					"Inconsolata LGC Bold Nerd Font Complete",
+					"M+",
+					"Inconsolata",
+					"font",
+					"URxvt.",
+					"URxvt.letterSpace",
+					"addy",
+					"export",
+					"\\u",
+					"/u",
+					"addy",
+					"home"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": true,
+				"replace_history":
+				[
+					" ",
+					"",
+					"\"",
+					"\\n",
+					"/n",
+					"\",\"",
+					"\"\"",
+					" ",
+					"Droid Sans Mono Nerd Font",
+					"Inconsolata LGC Bold Nerd Font Complete"
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"groups":
+			[
+				{
+					"selected": 12,
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"settings":
+							{
+								"buffer_size": 1441,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1441,
+										1441
+									]
+								],
+								"settings":
+								{
+									"auto_name": "Currently, I am in the final semester of a Masters",
+									"spell_check": true,
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 51.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"settings":
+							{
+								"buffer_size": 408,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										408
+									]
+								],
+								"settings":
+								{
+									"auto_name": "Hi Brad,",
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 2,
+							"file": "/home/sunit/Downloads/Assignment3.scala",
+							"settings":
+							{
+								"buffer_size": 2875,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										2875,
+										2875
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Scala/Scala.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 663.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 3,
+							"file": "/home/sunit/Downloads/Assignment3P2.scala",
+							"settings":
+							{
+								"buffer_size": 0,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Scala/Scala.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 4,
+							"file": "/home/sunit/Downloads/test.scala",
+							"settings":
+							{
+								"buffer_size": 3357,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1766,
+										1766
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Scala/Scala.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 629.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 5,
+							"file": "/home/sunit/IdeaProjects/Assignment3Part2/src/main/scala/Part2/TopicModelling.scala",
+							"settings":
+							{
+								"buffer_size": 3861,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										3493,
+										3493
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Scala/Scala.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 816.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 6,
+							"settings":
+							{
+								"buffer_size": 2500,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1625,
+										1625
+									]
+								],
+								"settings":
+								{
+									"auto_name": "Hi,",
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 7,
+							"settings":
+							{
+								"buffer_size": 1222,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1222,
+										1222
+									]
+								],
+								"settings":
+								{
+									"auto_name": "Virtual Network Function Manager:  Contributed to",
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 8,
+							"settings":
+							{
+								"buffer_size": 5939,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1280,
+										1280
+									]
+								],
+								"settings":
+								{
+									"auto_name": "Point: Point@5cad8086",
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 9,
+							"file": "/home/sunit/Downloads/Assignment3/Part1/ReadMe",
+							"settings":
+							{
+								"buffer_size": 306,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"auto_name": "ReadMe",
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 10,
+							"file": "/home/sunit/Downloads/Assignment3/Part2/ReadMe",
+							"settings":
+							{
+								"buffer_size": 306,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										306,
+										306
+									]
+								],
+								"settings":
+								{
+									"auto_name": "ReadMe",
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 11,
+							"file": "/home/sunit/Downloads/Assignment3/Part3/ReadMe",
+							"settings":
+							{
+								"buffer_size": 332,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										311,
+										311
+									]
+								],
+								"settings":
+								{
+									"auto_name": "ReadMe",
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 12,
+							"file": "/home/sunit/server.properties",
+							"settings":
+							{
+								"buffer_size": 6851,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										6851,
+										6851
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Java/JavaProperties.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 1929.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						}
+					]
+				}
+			],
+			"incremental_find":
+			{
+				"height": 0.0
+			},
+			"input":
+			{
+				"height": 0.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"position": "0,0,0,0,0,647,83,1287,563,1366,768",
+			"replace":
+			{
+				"height": 64.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": true,
+			"show_open_files": false,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 150.0,
+			"status_bar_visible": true,
+			"window_id": 1,
+			"workspace_name": ""
+		}
+	],
+	"workspaces":
+	{
+		"recent_workspaces":
+		[
+		]
+	}
+}

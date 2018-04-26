@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://openbox.org/">
+  <menu id="root-menu" label="Applications">
+    <item label="Terminal"><action name="Execute"><command><![CDATA[termite]]></command></action></item>
+    <item label="Firefox"><action name="Execute"><command><![CDATA[/usr/lib/firefox/firefox]]></command></action></item>
+    <item label="File Manager"><action name="Execute"><command><![CDATA[pcmanfm]]></command></action></item>
+  <separator label="Categories"/>
+  <menu id="0.978160700135962" label="Accessories">
+    <item label="ClipIt"><action name="Execute"><command><![CDATA[clipit]]></command></action></item>
+    <item label="File Manager"><action name="Execute"><command><![CDATA[pcmanfm]]></command></action></item>
+    <item label="nitrogen"><action name="Execute"><command><![CDATA[nitrogen]]></command></action></item>
+    <item label="Sublime Text"><action name="Execute"><command><![CDATA[subl]]></command></action></item>
+  </menu>
+  <menu id="0.313742204194085" label="Development">
+    <item label="IntelliJ IDEA Ultimate Edition"><action name="Execute"><command><![CDATA[intellij-idea-ultimate-edition]]></command></action></item>
+    <item label="ipython"><action name="Execute"><command><![CDATA[xterm -e 'ipython']]></command></action></item>
+    <item label="PyCharm Community Edition"><action name="Execute"><command><![CDATA["/opt/pycharm-community/bin/pycharm.sh"]]></command></action></item>
+    <item label="Sysprof"><action name="Execute"><command><![CDATA[sysprof]]></command></action></item>
+    <item label="Unity"><action name="Execute"><command><![CDATA[/usr/bin/unity-editor]]></command></action></item>
+  </menu>
+  <menu id="0.461651763451425" label="Games">
+    <item label="OpenArena"><action name="Execute"><command><![CDATA[openarena]]></command></action></item>
+  </menu>
+  <menu id="0.541282505585464" label="Graphics">
+    <item label="Autodesk Maya 2017"><action name="Execute"><command><![CDATA[/usr/autodesk/maya2017/bin/maya2017]]></command></action></item>
+    <item label="GNU Image Manipulation Program"><action name="Execute"><command><![CDATA[gimp-2.8]]></command></action></item>
+  </menu>
+  <menu id="0.290490086784377" label="Multimedia">
+    <item label="PulseAudio Volume Control"><action name="Execute"><command><![CDATA[pavucontrol]]></command></action></item>
+    <item label="VLC media player"><action name="Execute"><command><![CDATA[/usr/bin/vlc --started-from-file]]></command></action></item>
+  </menu>
+  <menu id="0.109061460694633" label="Network">
+    <item label="Firefox"><action name="Execute"><command><![CDATA[/usr/lib/firefox/firefox]]></command></action></item>
+    <item label="Remmina"><action name="Execute"><command><![CDATA[/usr/bin/remmina]]></command></action></item>
+  </menu>
+  <menu id="0.462847793611527" label="Settings">
+    <item label="Keyboard and Mouse"><action name="Execute"><command><![CDATA[lxinput]]></command></action></item>
+    <item label="Network Connections"><action name="Execute"><command><![CDATA[nm-connection-editor]]></command></action></item>
+    <item label="Preferred Applications"><action name="Execute"><command><![CDATA[libfm-pref-apps]]></command></action></item>
+  </menu>
+  <menu id="0.110092807136503" label="System">
+    <item label="File Manager"><action name="Execute"><command><![CDATA[pcmanfm]]></command></action></item>
+    <item label="Oracle VM VirtualBox"><action name="Execute"><command><![CDATA[VirtualBox]]></command></action></item>
+  </menu>
+  <menu id="0.611691680985853" label="Openbox">
+    <item label="Openbox Autostart"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/autostart]]></command></action></item>
+    <item label="Openbox RC"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/rc.xml]]></command></action></item>
+    <item label="Openbox Menu"><action name="Execute"><command><![CDATA[geany ~/.config/openbox/menu.xml]]></command></action></item>
+    <item label="Reconfigure Openbox"><action name="Execute"><command><![CDATA[openbox --reconfigure]]></command></action></item>
+  </menu>
+  </menu>
+  <separator/>
+    <item label="Lock"><action name="Execute"><command><![CDATA[xscreensaver-command -lock]]></command></action></item>
+    <item label="Exit"><action name="Exit"/></item>
+  </menu>
+</openbox_menu>

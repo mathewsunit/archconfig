@@ -1,0 +1,11 @@
+{
+  "name": "com.unity.analytics",
+  "version": "1.0.1",
+  "unity": "2017.2",
+  "description": "Unity Analytics",
+  "keywords": [
+    "analytics",
+    "unity"
+  ],
+  "license" : "Unity Companion Package License v1.0"  
+}

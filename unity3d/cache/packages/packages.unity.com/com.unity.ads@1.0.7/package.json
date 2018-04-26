@@ -1,0 +1,11 @@
+{
+  "name": "com.unity.ads",
+  "version": "1.0.7",
+  "unity": "2017.2",
+  "description": "Unity Ads",
+  "keywords": [
+    "ads",
+    "unity"
+  ],
+  "license" : "Unity Companion Package License v1.0"
+}

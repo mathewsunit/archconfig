@@ -1,0 +1,473 @@
+{
+   "checksum": "a8635845b937c9c0b81f3b8704c0f285",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13137127225000000",
+            "id": "35",
+            "meta_info": {
+               "last_visited_desktop": "13166326500117862"
+            },
+            "name": "ata",
+            "sync_transaction_version": "130",
+            "type": "url",
+            "url": "https://outlook.office.com/owa/?path=/mail/inbox"
+         }, {
+            "children": [ {
+               "children": [ {
+                  "date_added": "13156126483000000",
+                  "id": "41",
+                  "name": "User contributed modules · jaagr/polybar Wiki · GitHub",
+                  "sync_transaction_version": "57",
+                  "type": "url",
+                  "url": "https://github.com/jaagr/polybar/wiki/User-contributed-modules#gmail"
+               } ],
+               "date_added": "13165945617943200",
+               "date_modified": "0",
+               "id": "40",
+               "name": "arch",
+               "sync_transaction_version": "56",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13136432447000000",
+                  "id": "43",
+                  "name": "Spring Boot Security Application - Bartosz Kielczewski",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "https://kielczewski.eu/2014/12/spring-boot-security-application/"
+               }, {
+                  "date_added": "13136599115000000",
+                  "id": "44",
+                  "name": "AngularJS+Spring Security using Basic Authentication - WebSystique",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "http://websystique.com/spring-security/angularjs-basic-authentication-using-spring-security/"
+               }, {
+                  "date_added": "13136599963000000",
+                  "id": "45",
+                  "name": "CSRF Protection with Spring Security and Angular JS - {code that works} by Sadique Ali",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "https://sdqali.in/blog/2016/07/20/csrf-protection-with-spring-security-and-angular-js/"
+               }, {
+                  "date_added": "13136977772000000",
+                  "id": "46",
+                  "name": "Stateless Spring Security Part 1: Stateless CSRF protection",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "https://blog.jdriven.com/2014/10/stateless-spring-security-part-1-stateless-csrf-protection/"
+               }, {
+                  "date_added": "13136979812000000",
+                  "id": "47",
+                  "name": "Control the Session with Spring Security | Baeldung",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "http://www.baeldung.com/spring-security-session"
+               }, {
+                  "date_added": "13137029373000000",
+                  "id": "48",
+                  "name": "Hands-on: Implementing MicroServices with Spring Boot – Technology explained",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "https://alexandreesl.com/2014/12/21/hands-on-implementando-microservicos-com-spring-boot/"
+               }, {
+                  "date_added": "13137048508000000",
+                  "id": "49",
+                  "name": "javascript - AngularJS- Login and Authentication in each route and controller - Stack Overflow",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "http://stackoverflow.com/questions/20969835/angularjs-login-and-authentication-in-each-route-and-controller?rq=1"
+               }, {
+                  "date_added": "13137416493000000",
+                  "id": "50",
+                  "name": "Securing Spring Cloud Microservices With OAuth2 - stytex Blog",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "http://stytex.de/blog/2016/02/01/spring-cloud-security-with-oauth2/"
+               }, {
+                  "date_added": "13137417435000000",
+                  "id": "51",
+                  "name": "GitHub - joshlong/service-registration-and-discovery: A repository for a blog on how Spring Cloud promotes resilient service-to-service calls through service registries and service discovery",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "https://github.com/joshlong/service-registration-and-discovery"
+               }, {
+                  "date_added": "13135676917000000",
+                  "id": "52",
+                  "name": "cryptanalysis - How practical are side-channel attacks and how much of a concern are they? - Cryptography Stack Exchange",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "http://crypto.stackexchange.com/questions/3775/how-practical-are-side-channel-attacks-and-how-much-of-a-concern-are-they?rq=1"
+               }, {
+                  "date_added": "13137967127000000",
+                  "id": "53",
+                  "name": "Microservice Registration and Discovery with Spring Cloud and Netflix's Eureka",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "https://spring.io/blog/2015/01/20/microservice-registration-and-discovery-with-spring-cloud-and-netflix-s-eureka"
+               } ],
+               "date_added": "13165945617943294",
+               "date_modified": "0",
+               "id": "42",
+               "name": "Spring_web",
+               "sync_transaction_version": "56",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13148091747000000",
+                  "id": "55",
+                  "name": "3D User Interfaces > 3D User Interfaces : Safari Books Online",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "http://proquest.safaribooksonline.com.libproxy.utdallas.edu/book/software-engineering-and-development/user-interface/9780134034478/firstchapter"
+               }, {
+                  "date_added": "13135420030000000",
+                  "id": "56",
+                  "name": "math - Is there an algorithm for solving such projection reconstruction geometric problem? - Stack Overflow",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "http://stackoverflow.com/questions/3705195/is-there-an-algorithm-for-solving-such-projection-reconstruction-geometric-probl"
+               } ],
+               "date_added": "13165945617944186",
+               "date_modified": "0",
+               "id": "54",
+               "name": "VR_Stuff",
+               "sync_transaction_version": "56",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13148258592000000",
+                  "id": "58",
+                  "name": "HackState | Mississippi's 1st MLH Hackathon",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "http://hackstate.org/"
+               }, {
+                  "date_added": "13148258667000000",
+                  "id": "59",
+                  "name": "VandyHacks IV",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "https://vandyhacks.org/"
+               }, {
+                  "date_added": "13148258700000000",
+                  "id": "60",
+                  "name": "HackRiddle // November 4th-5th, 2017 // Daytona Beach, FL",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "https://hackriddle.com/"
+               }, {
+                  "date_added": "13148258717000000",
+                  "id": "61",
+                  "name": "HealthHacks",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "http://healthhacks.vcu.edu/"
+               }, {
+                  "date_added": "13148258705000000",
+                  "id": "62",
+                  "name": "Hack K-State 2017",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "https://hackkstate.tech/"
+               }, {
+                  "date_added": "13148258737000000",
+                  "id": "63",
+                  "name": "HackUTA",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "http://hackuta.com/"
+               }, {
+                  "date_added": "13148258779000000",
+                  "id": "64",
+                  "name": "The Official 2018 Season North America Hackathon Schedule // Major League Hacking",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "https://mlh.io/seasons/na-2018/events"
+               } ],
+               "date_added": "13165945617944430",
+               "date_modified": "0",
+               "id": "57",
+               "name": "Hackathons",
+               "sync_transaction_version": "56",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13156127944000000",
+                  "id": "66",
+                  "name": "Source Code Java FL",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "https://users.cs.fiu.edu/~weiss/dsaajava3/code/"
+               }, {
+                  "date_added": "13156128108000000",
+                  "id": "67",
+                  "name": "Data Structures and Algorithm Analysis in Java - 1354098277.pdf",
+                  "sync_transaction_version": "56",
+                  "type": "url",
+                  "url": "http://www.kitabxana.net/files/books/file/1354098277.pdf"
+               } ],
+               "date_added": "13165945617944992",
+               "date_modified": "0",
+               "id": "65",
+               "name": "cs5343",
+               "sync_transaction_version": "56",
+               "type": "folder"
+            }, {
+               "date_added": "13161400857000000",
+               "id": "68",
+               "name": "Lyft - Software Engineering Apprenticeship",
+               "sync_transaction_version": "56",
+               "type": "url",
+               "url": "https://jobs.lever.co/lyft/3f67777a-40bb-449e-b756-7238a597b447/apply?lever-source=LinkedInJobPostings#"
+            } ],
+            "date_added": "13165945617943176",
+            "date_modified": "0",
+            "id": "39",
+            "name": "Other Bookmarks",
+            "sync_transaction_version": "91",
+            "type": "folder"
+         }, {
+            "date_added": "13157606689000000",
+            "id": "38",
+            "meta_info": {
+               "last_visited_desktop": "13169200248217339"
+            },
+            "name": "Welcome, Sunit – Blackboard Learn",
+            "sync_transaction_version": "316",
+            "type": "url",
+            "url": "https://elearning.utdallas.edu/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_1_1"
+         }, {
+            "date_added": "13166061453790754",
+            "id": "70",
+            "meta_info": {
+               "last_visited_desktop": "13166317677145853"
+            },
+            "name": "HashMap (Java Platform SE 8 )",
+            "sync_transaction_version": "129",
+            "type": "url",
+            "url": "https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html#remove-java.lang.Object-java.lang.Object-"
+         }, {
+            "date_added": "13167431579966355",
+            "id": "72",
+            "meta_info": {
+               "last_visited_desktop": "13168493414408668"
+            },
+            "name": "EC2 Management Console",
+            "sync_transaction_version": "280",
+            "type": "url",
+            "url": "https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#KeyPairs:sort=keyName"
+         }, {
+            "children": [ {
+               "date_added": "13168405593055137",
+               "id": "74",
+               "meta_info": {
+                  "last_visited_desktop": "13168405593061320"
+               },
+               "name": "Working at HERE | Take your career further |Software Developer",
+               "sync_transaction_version": "225",
+               "type": "url",
+               "url": "https://careers-here.icims.com/jobs/20637/software-developer/job?mobile=false&width=752&height=500&bga=true&needsRedirect=false&jan1offset=-360&jun1offset=-300"
+            }, {
+               "date_added": "13168405609748268",
+               "id": "76",
+               "meta_info": {
+                  "last_visited_desktop": "13168405609749472"
+               },
+               "name": "Software Engineer #472199 US-CA-San Mateo",
+               "sync_transaction_version": "229",
+               "type": "url",
+               "url": "https://recruit.hirebridge.com/v3/Jobs/JobDetails.aspx?cid=7744&jid=472199&locvalue=1062&utm_source=Linkedin&utm_medium=job_board&utm_campaign=enterprise&utm_term=sponsored"
+            }, {
+               "date_added": "13168405630482669",
+               "id": "77",
+               "meta_info": {
+                  "last_visited_desktop": "13168405630483726"
+               },
+               "name": "Nextdoor: Jobs",
+               "sync_transaction_version": "233",
+               "type": "url",
+               "url": "https://nextdoor.com/jobs/?gh_jid=1119276&utm_source=linkup&utm_medium=referrer"
+            }, {
+               "date_added": "13168405658182953",
+               "id": "78",
+               "meta_info": {
+                  "last_visited_desktop": "13168405658184269"
+               },
+               "name": "Red Hat Jobs -Software Engineer",
+               "sync_transaction_version": "237",
+               "type": "url",
+               "url": "https://us-redhat.icims.com/jobs/62484/software-engineer/job?hub=7&%26%3Fmode=job&%26iis=Job%2BBoard&%26iisn=LinkedIn%2BPosting&mode=job&iis=Job+Board&iisn=LinkedIn&mobile=false&width=1170&height=500&bga=true&needsRedirect=false&jan1offset=-360&jun1offset=-300"
+            }, {
+               "date_added": "13168406633582592",
+               "id": "79",
+               "meta_info": {
+                  "last_visited_desktop": "13168406633583699"
+               },
+               "name": "MZ - Software Engineer, Java",
+               "sync_transaction_version": "241",
+               "type": "url",
+               "url": "https://jobs.lever.co/machinezone/e2add82d-c82d-465b-a1c1-eefc56d7de1d?lever-source=LinkedInJobBoard"
+            }, {
+               "date_added": "13168406644466715",
+               "id": "80",
+               "meta_info": {
+                  "last_visited_desktop": "13168406644467955"
+               },
+               "name": "Software Engineer at Hewlett Packard Enterprise Company",
+               "sync_transaction_version": "245",
+               "type": "url",
+               "url": "https://careers.hpe.com/job/san-jose/software-engineer/3545/7709019?source=APPLICANT_SOURCE_JOB_BOARD_LINKEDIN"
+            }, {
+               "date_added": "13168406648735755",
+               "id": "81",
+               "meta_info": {
+                  "last_visited_desktop": "13168406648737006"
+               },
+               "name": "Software Engineer",
+               "sync_transaction_version": "249",
+               "type": "url",
+               "url": "https://jobs.cisco.com/jobs/ProjectDetail/Software-Engineer/1228494?source=LinkedIn"
+            }, {
+               "date_added": "13168406657352917",
+               "id": "82",
+               "meta_info": {
+                  "last_visited_desktop": "13168406657354602"
+               },
+               "name": "Software Engineer, Data Systems #0036 job at Amobee in Redwood City, CA, powered by JobScore",
+               "sync_transaction_version": "253",
+               "type": "url",
+               "url": "https://careers.jobscore.com/careers/amobee/jobs/software-engineer-data-systems-dny_gU_KKr35LieJe4bk1X"
+            }, {
+               "date_added": "13168406679695458",
+               "id": "83",
+               "meta_info": {
+                  "last_visited_desktop": "13168406679696370"
+               },
+               "name": "Groupon Careers",
+               "sync_transaction_version": "257",
+               "type": "url",
+               "url": "https://jobs.groupon.com/jobs/P37953?source=LI_Job_Postings"
+            }, {
+               "date_added": "13168406686644185",
+               "id": "84",
+               "meta_info": {
+                  "last_visited_desktop": "13168406686645125"
+               },
+               "name": "Software Developer",
+               "sync_transaction_version": "260",
+               "type": "url",
+               "url": "https://statefarm.csod.com/ats/careersite/JobDetails.aspx?id=2830&site=1"
+            }, {
+               "date_added": "13168406691178583",
+               "id": "85",
+               "meta_info": {
+                  "last_visited_desktop": "13168406691179756"
+               },
+               "name": "Quicken Loans Careers |Software Engineer - Full Stack",
+               "sync_transaction_version": "264",
+               "type": "url",
+               "url": "https://careers-quickenloans.icims.com/jobs/22622/software-engineer---full-stack/job?mode=Job+Board&iisn=LinkedIn&iis=Job+Board&mobile=false&width=1334&height=500&bga=true&needsRedirect=false&jan1offset=-360&jun1offset=-300"
+            }, {
+               "date_added": "13168406695296543",
+               "id": "86",
+               "meta_info": {
+                  "last_visited_desktop": "13168406695297521"
+               },
+               "name": "Software Engineer | Riot Games",
+               "sync_transaction_version": "268",
+               "type": "url",
+               "url": "https://www.riotgames.com/en/work-with-us/job/10838?gh_jid=10838&gh_src=vs7ga51"
+            }, {
+               "date_added": "13168406699872823",
+               "id": "87",
+               "meta_info": {
+                  "last_visited_desktop": "13168406699873208"
+               },
+               "name": "Software Development Engineer in Santa Clara, California, USA | Product Development/Engineering at citrix",
+               "sync_transaction_version": "272",
+               "type": "url",
+               "url": "https://jobs.citrix.com/job/CITRA005810862/Software-Development-Engineer?jobsource=linkedin&utm_source=linkedin&utm_medium=linkedin&utm_campaign=linkedin-feed"
+            }, {
+               "date_added": "13168462757036511",
+               "id": "88",
+               "meta_info": {
+                  "last_visited_desktop": "13168919676044790"
+               },
+               "name": "Job Openings",
+               "sync_transaction_version": "311",
+               "type": "url",
+               "url": "https://nytimes.wd5.myworkdayjobs.com/en-US/Tech/job/New-York-NY/Data-Scientist_REQ-002899-1?source=Linkedin"
+            } ],
+            "date_added": "13168405605537066",
+            "date_modified": "13168462757036511",
+            "id": "75",
+            "name": "Jobs",
+            "sync_transaction_version": "226",
+            "type": "folder"
+         }, {
+            "date_added": "13168732949698552",
+            "id": "89",
+            "name": "1 Notifications",
+            "sync_transaction_version": "297",
+            "type": "url",
+            "url": "https://www.facebook.com/venugopal.ck.9026/posts/215994005841498?comment_id=215999422507623&notif_id=1524250572864075&notif_t=feedback_reaction_generic&ref=notif#"
+         } ],
+         "date_added": "13165944587348810",
+         "date_modified": "13168732949698552",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [ {
+            "date_added": "12998640723520369",
+            "id": "7",
+            "meta_info": {
+               "last_visited_desktop": "13168038638431497"
+            },
+            "name": "What Causes that Clicking Sound in the Knee?",
+            "sync_transaction_version": "204",
+            "type": "url",
+            "url": "http://www.beginnertriathlete.com/cms/article-detail.asp?articleid=2451"
+         }, {
+            "date_added": "12998640975512966",
+            "id": "8",
+            "name": "Sportswear and Apparels - Buy Fitness Apparels for Man, Woman & Kids in India | HealthKart.com",
+            "sync_transaction_version": "1",
+            "type": "url",
+            "url": "http://www.healthkart.com/sports/apparel"
+         } ],
+         "date_added": "13165944587348814",
+         "date_modified": "12998640975512966",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "sync_transaction_version": "316",
+      "synced": {
+         "children": [ {
+            "date_added": "13014755502385635",
+            "id": "5",
+            "name": "K S R T C.",
+            "sync_transaction_version": "1",
+            "type": "url",
+            "url": "http://www.ksrtc.in/AWATAROnline/manageEbk.do?PrintType=Onward"
+         }, {
+            "date_added": "13116629098480064",
+            "id": "6",
+            "name": "Lagrange's Interpolation - GeeksforGeeks",
+            "sync_transaction_version": "1",
+            "type": "url",
+            "url": "http://www.geeksforgeeks.org/lagranges-interpolation/"
+         } ],
+         "date_added": "13165944587348815",
+         "date_modified": "13116629098480064",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

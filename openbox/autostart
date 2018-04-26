@@ -1,0 +1,24 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+
+compton -b --config ~/.config/compton.conf &
+
+/home/sunit/.config/polybar/launch-openbox.sh &
+
+# Set background image
+(sleep 1; nitrogen --restore) &
+
+## GNOME PolicyKit authentication
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+## Volume control for systray
+(sleep 2; volumeicon) &
+#(sleep 2; pasystray) &
+
+##Clipboard Manager
+(sleep 3; clipit) &
+
+feh --bg-max --randomize /home/sunit/.wallpaper/* &

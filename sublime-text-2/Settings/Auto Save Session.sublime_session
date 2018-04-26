@@ -1,0 +1,400 @@
+{
+	"folder_history":
+	[
+	],
+	"last_window_id": 1,
+	"settings":
+	{
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+				]
+			},
+			"buffers":
+			[
+				{
+					"contents": "Currently, I am in the final semester of a Masters in Computer Science at the University of Texas at Dallas. My specialization is in ML, AI and Data Science. Prior to attending graduate school, I was a backend Java Engineer for 4 years, and I am currently looking for the ideal place to resume my career.\nFrom 2012 to 2016 I worked in the Cloud Network Management team at Sonus Networks. As a member of the team, I owned some portions of the management and monitoring stack. This included monitoring applications, scaling algorithms that are essential to supporting and monetizing our VoIP architecture. I also developed various upstream interfaces to communicate with third party applications. As our team had complete responsibility over the product, I also helped in developing and maintaining regression and load testing tools, etc. The core focus of my work is to ensure that our Network Management Solution could meet the needs of our customers and support our essential solutions in the cloud.\nLast summer, I interned at Faraday Future Inc, where I was part of their system integration team where I helped them build a tool that generates libraries for their upcoming vehicle.\nI worked mostly on Java and Python and have recently started learning Scala for some BigData projects.\nThough my background is probably quite different from what you might expect, I am sure I can grow into a new role and quickly become an asset to the team.",
+					"settings":
+					{
+						"buffer_size": 1441,
+						"line_ending": "Unix",
+						"name": "Currently, I am in the final semester of a Masters"
+					}
+				},
+				{
+					"contents": "Hi Brad,\n\nI saw a job that you posted for a Software Engineer in Enterprise Applications at Tableau. I am Software Engineer with ~4 years of experience and I felt that this was something right up my street.\nIt would be great if you could take a look at my profile, and let me know if I can be a good fit at Tableau. I would be happy to give you a more formal introduction and my latest resume!\n\nCheers!\nSunit",
+					"settings":
+					{
+						"buffer_size": 408,
+						"line_ending": "Unix",
+						"name": "Hi Brad,"
+					}
+				}
+			],
+			"build_system": "",
+			"command_palette":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"console":
+			{
+				"height": 0.0
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/home/sunit/.config/openbox/rc.xml",
+				"/usr/lib/sddm/sddm.conf.d/sddm.conf",
+				"/home/sunit/IdeaProjects/SparkStreamingTwitterExample/pom.xml",
+				"/home/sunit/.config/openbox/autostart",
+				"/home/sunit/.config/openbox/kbinds.txt",
+				"/home/sunit/IdeaProjects/Assignment4/Assignment4P2/output",
+				"/home/sunit/IdeaProjects/Assignment4/Assignment4P2/HowTo",
+				"/home/sunit/IdeaProjects/Assignment4/Assignment4P1/HowTo",
+				"/home/sunit/IdeaProjects/Assignment3Part1/src/main/scala/Part1/TFIDF.scala",
+				"/home/sunit/IdeaProjects/Assignment3Part2/src/main/scala/Part2/TopicModelling.scala",
+				"/home/sunit/IdeaProjects/Assignment3Part3/src/main/scala/Part3/TFIDF.scala",
+				"/home/sunit/IdeaProjects/SparkML/src/main/scala/PageRank.scala",
+				"/home/sunit/Downloads/GraphX.scala",
+				"/home/sunit/IdeaProjects/Amazon/pom.xml",
+				"/home/sunit/IdeaProjects/SparkStreaming/pom.xml",
+				"/home/sunit/SparkStarter/logstash-simple.conf",
+				"/home/sunit/IdeaProjects/SparkStreamingTwitterExample/src/main/scala/streaming/TwitterProducer.scala",
+				"/home/sunit/SparkStarter/getStarted.sh",
+				"/home/sunit/server2.properties",
+				"/home/sunit/server1.properties",
+				"/home/sunit/IdeaProjects/Assignment3Part2/src/main/scala/Part2/SparkUtils.scala",
+				"/home/sunit/IdeaProjects/HowTo",
+				"/usr/share/sddm/themes/archlinux-soft-grey/Main.qml",
+				"/home/sunit/IdeaProjects/SparkStreaming/project/build.properties",
+				"/home/sunit/server.properties1",
+				"/home/sunit/Downloads/Assignment3/Part3/ReadMe",
+				"/home/sunit/Downloads/Assignment3/Part2/ReadMe",
+				"/home/sunit/Downloads/Assignment3/Part1/ReadMe",
+				"/home/sunit/Downloads/test.scala",
+				"/home/sunit/Downloads/Assignment3P2.scala",
+				"/home/sunit/Downloads/Assignment3.scala",
+				"/home/sunit/server.properties",
+				"/home/sunit/Downloads/Assignment1b/Part1/README",
+				"/tmp/mozilla_sunit0/CS6350Assignment2.scala",
+				"/tmp/mozilla_sunit0/CS6350Assignment2_Part2.scala",
+				"/home/sunit/.IntelliJIdea2017.2/system/log/sbt.last.log",
+				"/home/sunit/IdeaProjects/MLProjects/build.sbt",
+				"/home/sunit/IdeaProjects/MLProjects/project/build.properties",
+				"/home/sunit/Downloads/ratings.dat",
+				"/home/sunit/Downloads/Assignment1b/Part2/README",
+				"/home/sunit/Downloads/Lab1",
+				"/home/sunit/Downloads/CoverLetter",
+				"/home/sunit/Downloads/Topics covered",
+				"/home/sunit/Downloads/BigData/Sriraam/Assignments/Assignment 3/Scala3.txt",
+				"/home/sunit/Downloads/BigData/Sriraam/Assignments/Classroom Assignment 2/Link to Spark Notebook.txt",
+				"/home/sunit/Downloads/BigData/Sriraam/Assignments/Classroom Assignment 4/Hive lab commands.txt",
+				"/home/sunit/IdeaProjects/JavaHDFSBackup/JavaHDFSOld/WordCount3.java",
+				"/home/sunit/IdeaProjects/JavaHDFSBackup/JavaHDFSOld/WordCount2.java",
+				"/home/sunit/IdeaProjects/JavaHDFSBackup/JavaHDFSOld/WordCount1.java",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp7-in1.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp7-in0.txt",
+				"/home/sunit/Downloads/ReadMe",
+				"/home/sunit/Downloads/Assignment1/Part1/ReadMe",
+				"/home/sunit/Downloads/Assignment1/Part2/ReadMe",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp4/lp4-1-acde.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp4/lp4-3-c.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp9-in1.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp9-in2.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp4/lp4-9-acde.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/test-lp4/a.2",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/test-lp4/c.2",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/test-lp4/c.1",
+				"/home/sunit/Downloads/cs6301/g50/README.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp7-in7.txt",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp7-in6.txt",
+				"/home/sunit/Downloads/test-lp6/t2.1",
+				"/home/sunit/Downloads/test-lp6/t2.2",
+				"/home/sunit/Downloads/test-lp6/t2.3",
+				"/home/sunit/Downloads/test-lp6/t2.4",
+				"/home/sunit/Downloads/test-lp6/t3.1",
+				"/home/sunit/Downloads/test-lp6/t3.2",
+				"/home/sunit/Downloads/test-lp6/t3.3",
+				"/home/sunit/Downloads/test-lp6/t3.4",
+				"/home/sunit/Downloads/test-lp6/t3",
+				"/home/sunit/Documents/Coursework/balaji/project_inputs/lp4/lp4-in-cd.txt",
+				"/home/sunit/Downloads/test-lp6/t1.13",
+				"/home/sunit/Downloads/test-lp6/t1.12",
+				"/home/sunit/Downloads/test-lp6/t1.11",
+				"/home/sunit/Downloads/test-lp6/t1.2",
+				"/home/sunit/Downloads/test-lp6/t1.3",
+				"/home/sunit/Downloads/test-lp6/t1.4",
+				"/home/sunit/Downloads/test-lp6/t2",
+				"/home/sunit/Downloads/test-lp6/t1",
+				"/home/sunit/Downloads/test-lp6/t1.1",
+				"/home/sunit/Downloads/data2/lp6-in6.txt",
+				"/home/sunit/Downloads/data2/lp6-out6.txt",
+				"/home/sunit/Downloads/details/lp6-out4.txt",
+				"/home/sunit/.config/pcmanfm/default/pcmanfm.conf",
+				"/home/sunit/Desktop/Trash",
+				"/home/sunit/.config/polybar/mail",
+				"/home/sunit/.config/polybar/config-openbox",
+				"/home/sunit/.config/termite/config)bk2",
+				"/home/sunit/Downloads/data2/lp6-out5.txt",
+				"/home/sunit/.Xresources",
+				"/home/sunit/.config/termite/config",
+				"/home/sunit/.config/zathura/zathurarc",
+				"/home/sunit/Downloads/lp6-out2.txt",
+				"/home/sunit/Downloads/lp6-in1.txt",
+				"/home/sunit/Downloads/lp6-in2.txt",
+				"/home/sunit/Downloads/lp6-in3.txt",
+				"/home/sunit/Downloads/lp6-in4.txt",
+				"/home/sunit/Downloads/lp6-out4.txt",
+				"/home/sunit/Downloads/data2/lp6-in5.txt",
+				"/home/sunit/.config/openbox/menu.xml",
+				"/home/sunit/test",
+				"/home/sunit/.zshrc",
+				"/home/sunit/.config/polybar/launch-openbox.sh",
+				"/usr/local/bin/hotplug_monitor.sh"
+			],
+			"find":
+			{
+				"height": 35.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"hide",
+					"termite",
+					"sudo ",
+					"/opt",
+					"\n\n\n/$script_dir\n/$script_dir\n/$script_dir\n/$script_dir",
+					"/$script_dir",
+					"sudo ",
+					"opt",
+					"DAEMON_PATH",
+					"\\n",
+					"“",
+					"”",
+					",",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"  ",
+					"\\n",
+					"c",
+					"cet, cot, coy,",
+					"cet, cot, coy, cod, hod",
+					"[cet, cot, got, dot, tot]",
+					"null",
+					"rofi",
+					"98 750400 94310 422979",
+					"rofi",
+					"Inconsolata LGC Bold Nerd Font Complete",
+					"M+",
+					"Inconsolata",
+					"font",
+					"URxvt.",
+					"URxvt.letterSpace",
+					"addy",
+					"export",
+					"\\u",
+					"/u",
+					"addy",
+					"home"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+					"sakura",
+					"",
+					"$script_dir",
+					"",
+					"$script_dir",
+					"DAEMON_PATH_KAFKA",
+					" ",
+					"",
+					"\"",
+					"\\n",
+					"/n",
+					"\",\"",
+					"\"\"",
+					" ",
+					"Droid Sans Mono Nerd Font",
+					"Inconsolata LGC Bold Nerd Font Complete"
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"groups":
+			[
+				{
+					"selected": 1,
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"settings":
+							{
+								"buffer_size": 1441,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"auto_name": "Currently, I am in the final semester of a Masters",
+									"spell_check": true,
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"settings":
+							{
+								"buffer_size": 408,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										9,
+										9
+									]
+								],
+								"settings":
+								{
+									"auto_name": "Hi Brad,",
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						}
+					]
+				}
+			],
+			"incremental_find":
+			{
+				"height": 34.0
+			},
+			"input":
+			{
+				"height": 0.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"position": "0,1,0,0,0,0,0,0,0,5206,1080",
+			"replace":
+			{
+				"height": 64.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": true,
+			"show_open_files": false,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 150.0,
+			"status_bar_visible": true,
+			"window_id": 1,
+			"workspace_name": ""
+		}
+	],
+	"workspaces":
+	{
+		"recent_workspaces":
+		[
+		]
+	}
+}

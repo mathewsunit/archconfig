@@ -1,0 +1,16 @@
+2018/04/24-22:10:08.319 29004 Reusing MANIFEST /home/sunit/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2018/04/24-22:10:08.319 29004 Recovering log #42
+2018/04/24-22:10:08.385 29004 Reusing old log /home/sunit/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000042.log 
+2018/04/24-22:24:28.173 27700 Level-0 table #49: started
+2018/04/24-22:24:28.211 27700 Level-0 table #49: 1358710 bytes OK
+2018/04/24-22:24:28.223 27700 Delete type=0 #42
+2018/04/24-22:26:10.616 27700 Compacting 1@1 + 3@2 files
+2018/04/24-22:26:10.735 27700 Generated table #50@1: 39588 keys, 2230158 bytes
+2018/04/24-22:26:10.809 27700 Generated table #51@1: 35389 keys, 2235992 bytes
+2018/04/24-22:26:10.878 27700 Generated table #52@1: 66148 keys, 2258466 bytes
+2018/04/24-22:26:10.878 27700 Compacted 1@1 + 3@2 files => 6724616 bytes
+2018/04/24-22:26:10.884 27700 compacted to: files[ 0 0 3 0 0 0 0 ]
+2018/04/24-22:26:10.884 27700 Delete type=2 #45
+2018/04/24-22:26:10.885 27700 Delete type=2 #46
+2018/04/24-22:26:10.885 27700 Delete type=2 #49
+2018/04/24-22:26:10.885 27700 Delete type=2 #44

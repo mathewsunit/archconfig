@@ -1,6 +1,0 @@
-2018/04/25-19:14:10.538 2382 Reusing MANIFEST /home/sunit/.config/chromium/Default/IndexedDB/https_drive.google.com_0.indexeddb.leveldb/MANIFEST-000001
-2018/04/25-19:14:10.538 2382 Recovering log #7
-2018/04/25-19:14:10.544 2382 Reusing old log /home/sunit/.config/chromium/Default/IndexedDB/https_drive.google.com_0.indexeddb.leveldb/000007.log 
-2018/04/25-19:14:11.291 2497 Level-0 table #11: started
-2018/04/25-19:14:11.327 2497 Level-0 table #11: 696876 bytes OK
-2018/04/25-19:14:11.334 2497 Delete type=0 #7
